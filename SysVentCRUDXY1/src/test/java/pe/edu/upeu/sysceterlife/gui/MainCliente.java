@@ -31,7 +31,7 @@ public class MainCliente extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         btnpdf = new javax.swing.JButton();
-        btnEexcel = new javax.swing.JButton();
+        btnexcel = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnNuevo = new javax.swing.JButton();
@@ -43,7 +43,7 @@ public class MainCliente extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtpedrigi = new javax.swing.JTextField();
+        txtDni = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         cbxTipo = new javax.swing.JComboBox<>();
@@ -73,7 +73,7 @@ public class MainCliente extends javax.swing.JPanel {
             }
         });
 
-        btnEexcel.setText("excel");
+        btnexcel.setText("excel");
 
         jLabel6.setText("Exportar");
 
@@ -95,7 +95,7 @@ public class MainCliente extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnpdf)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEexcel))
+                        .addComponent(btnexcel))
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -113,7 +113,7 @@ public class MainCliente extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnpdf)
-                    .addComponent(btnEexcel)))
+                    .addComponent(btnexcel)))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 204));
@@ -201,9 +201,9 @@ public class MainCliente extends javax.swing.JPanel {
 
         jLabel3.setText("Nombre");
 
-        txtpedrigi.addActionListener(new java.awt.event.ActionListener() {
+        txtDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtpedrigiActionPerformed(evt);
+                txtDniActionPerformed(evt);
             }
         });
 
@@ -230,7 +230,7 @@ public class MainCliente extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtpedrigi, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -240,7 +240,7 @@ public class MainCliente extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtpedrigi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -290,9 +290,9 @@ public class MainCliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevoActionPerformed
 
-    private void txtpedrigiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpedrigiActionPerformed
+    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtpedrigiActionPerformed
+    }//GEN-LAST:event_txtDniActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
@@ -321,10 +321,10 @@ public class MainCliente extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEexcel;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegristrar;
+    private javax.swing.JButton btnexcel;
     private javax.swing.JButton btnpdf;
     private javax.swing.JComboBox<String> cbxTipo;
     private javax.swing.JLabel jLabel1;
@@ -340,8 +340,8 @@ public class MainCliente extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtpedrigi;
     // End of variables declaration//GEN-END:variables
 
     private void paintForm() {

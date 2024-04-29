@@ -1,14 +1,13 @@
-package pe.edu.upeu.syscenterlife;
+package pe.edu.upeu.systemaventas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SysVentCrudx1Application {
+public class SystemaVentasCrudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SysVentCrudx1Application.class, args);
+		SpringApplication.run(SystemaVentasCrudApplication.class, args);
 	}
 
 }
-
