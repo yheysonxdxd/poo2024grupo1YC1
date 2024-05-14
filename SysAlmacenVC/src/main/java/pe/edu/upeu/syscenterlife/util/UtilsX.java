@@ -35,7 +35,6 @@ public class UtilsX {
         String ruta = newFolder.getAbsolutePath();
         Path CAMINO = Paths.get(ruta + "/");
         return CAMINO.toFile();
-
     }
 
     public Properties detectLanguage(String idioma) {
@@ -71,4 +70,5 @@ public class UtilsX {
         }
         return idioma;
     }
+
 }

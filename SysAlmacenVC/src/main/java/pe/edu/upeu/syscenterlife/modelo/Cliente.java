@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,9 +16,9 @@ import lombok.ToString;
 @ToString
 @Data
 public class Cliente {
- @Id
- @Basic(optional = false)        
-String dniruc;
-String nombrers;
-String documento;
+   @Id
+   @Basic(optional = false)
+   String dniruc;
+   String nombrers; 
+   String documento; 
 }

@@ -77,7 +77,6 @@ public class Login extends javax.swing.JFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(new Dimension(screenSize.width / 2, (screenSize.height - 36) / 2));
         this.setLocationRelativeTo(null);
-
     }
 
     public void addEventListeners() {
