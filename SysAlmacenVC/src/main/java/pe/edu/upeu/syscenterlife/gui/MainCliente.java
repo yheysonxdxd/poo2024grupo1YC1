@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 import pe.edu.upeu.syscenterlife.modelo.Cliente;
+import pe.edu.upeu.syscenterlife.modelo.SessionManager;
 import pe.edu.upeu.syscenterlife.servicio.ClienteService;
 
 @Component
@@ -42,6 +43,7 @@ public class MainCliente extends javax.swing.JPanel {
     public void setContext(ConfigurableApplicationContext ctx){
         this.ctx=ctx;
         listarClientes();
+        usuarioLogin.setText(SessionManager.getInstance().getUsuarioNombre());
     }
 
     public void listarClientes() {
@@ -105,6 +107,7 @@ public class MainCliente extends javax.swing.JPanel {
         btnPdf = new javax.swing.JButton();
         btnExcel = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        usuarioLogin = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnNuevo = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
@@ -141,6 +144,8 @@ public class MainCliente extends javax.swing.JPanel {
 
         jLabel7.setText("yheyson Cristofer Cala");
 
+        usuarioLogin.setText("jLabel8");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -166,11 +171,17 @@ public class MainCliente extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(btnExcel)))
                 .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(usuarioLogin)
+                .addGap(332, 332, 332))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(8, 8, 8)
+                .addComponent(usuarioLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel5)
@@ -467,5 +478,6 @@ public class MainCliente extends javax.swing.JPanel {
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JLabel usuarioLogin;
     // End of variables declaration//GEN-END:variables
 }
