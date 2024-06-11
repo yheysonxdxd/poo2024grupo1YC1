@@ -7,7 +7,10 @@ package pe.edu.upeu.syscenterlife.gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -22,6 +25,8 @@ import pe.com.syscenterlife.jtablecomp.ButtonsPanel;
 import pe.com.syscenterlife.jtablecomp.ButtonsRenderer;
 import pe.edu.upeu.syscenterlife.modelo.SessionManager;
 import pe.edu.upeu.syscenterlife.modelo.VentCarrito;
+import pe.edu.upeu.syscenterlife.modelo.Venta;
+import pe.edu.upeu.syscenterlife.modelo.VentaDetalle;
 import pe.edu.upeu.syscenterlife.servicio.ClienteService;
 import pe.edu.upeu.syscenterlife.servicio.ProductoService;
 import pe.edu.upeu.syscenterlife.servicio.UsuarioService;
@@ -114,15 +119,15 @@ public class MainVenta extends javax.swing.JPanel {
 
     public List<VentCarrito> listarCarrito(String dni) {
         List<VentCarrito> listarCleintes = daoC.listaCarritoCliente(dni);
-        jTable1.setAutoCreateRowSorter(true);
-        modelo = (DefaultTableModel) jTable1.getModel();
+        jtable1.setAutoCreateRowSorter(true);
+        modelo = (DefaultTableModel) jtable1.getModel();
         ButtonsPanel.metaDataButtons = new String[][]{{"", "img/del-icon.png"}};
-        jTable1.setRowHeight(40);
-        TableColumn column = jTable1.getColumnModel().getColumn(8);
+        jtable1.setRowHeight(40);
+        TableColumn column = jtable1.getColumnModel().getColumn(8);
 
         try {
             column.setCellRenderer(new ButtonsRenderer());
-            be = new ButtonsEditor(jTable1);
+            be = new ButtonsEditor(jtable1);
             column.setCellEditor(be);
             modelo.setNumRows(0);
             Object[] ob = new Object[9];
@@ -143,15 +148,15 @@ public class MainVenta extends javax.swing.JPanel {
             }
             JButton btnDel = be.getCellEditorValue().buttons.get(0);
             btnDel.addActionListener((ActionEvent e) -> {
-                int row = jTable1.convertRowIndexToModel(jTable1.getEditingRow());
-                Object o = jTable1.getModel().getValueAt(row, 0);
+                int row = jtable1.convertRowIndexToModel(jtable1.getEditingRow());
+                Object o = jtable1.getModel().getValueAt(row, 0);
                 System.out.println("dd:" + o.toString());
                 daoC.eliminarEntidad(Long.parseLong(String.valueOf(o)));
                 listarCarrito(dni);
                 System.out.println("AAAA:" + String.valueOf(o));
                 JOptionPane.showMessageDialog(this, "Elimianr: " + o);
             });
-            jTable1.setModel(modelo);
+             jtable1.setModel(modelo);
             txtPimporte.setText(String.valueOf(impoTotal));
             double pv = impoTotal / 1.18;
             txtPVenta.setText(String.valueOf(Math.round(pv * 100.0) / 100.0));
@@ -203,7 +208,7 @@ public class MainVenta extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtable1 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -329,6 +334,7 @@ public class MainVenta extends javax.swing.JPanel {
 
         jLabel9.setText("P.total S/:");
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/data-add-icon.png"))); // NOI18N
         jButton2.setText("Add");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -387,13 +393,14 @@ public class MainVenta extends javax.swing.JPanel {
                         .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                         .addGap(1, 1, 1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel7))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel7)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,7 +414,7 @@ public class MainVenta extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -415,11 +422,11 @@ public class MainVenta extends javax.swing.JPanel {
                 "ID", "DNI/RUC", "id Producto", "Producto", "Cantidad", "P.Unitario", "P.Total S/.", "Estado", "Opc"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(60);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(30);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(30);
+        jScrollPane1.setViewportView(jtable1);
+        if (jtable1.getColumnModel().getColumnCount() > 0) {
+            jtable1.getColumnModel().getColumn(0).setMinWidth(60);
+            jtable1.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jtable1.getColumnModel().getColumn(0).setMaxWidth(30);
         }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -465,6 +472,7 @@ public class MainVenta extends javax.swing.JPanel {
             }
         });
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shop-cart-add-icon.png"))); // NOI18N
         jButton3.setText("R.Venta");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -489,7 +497,7 @@ public class MainVenta extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(txtDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtPVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38))
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -584,6 +592,7 @@ public class MainVenta extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        registrarVenta();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtPVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPVentaActionPerformed
@@ -608,7 +617,41 @@ public class MainVenta extends javax.swing.JPanel {
     private void txtDniAutoCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniAutoCompleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDniAutoCompleteActionPerformed
-
+public void registrarVenta() {
+ Venta to = new Venta();
+ to.setDniruc(daoCli.buscarEntidad(txtDniAutoComplete.getText()));
+ to.setPreciobase(Double.parseDouble(txtPimporte.getText()));
+ to.setIgv(Double.parseDouble(txtIgv.getText()));
+ to.setPreciototal(Double.parseDouble(txtPVenta.getText()));
+ to.setIdUsuario(userSer.buscarEntidad(SessionManager.getInstance().getUserId()));
+ to.setSerie("V");
+ to.setTipoDoc("Factura");
+ Locale locale = new Locale("es", "es-PE");
+ LocalDateTime localDate = LocalDateTime.now();
+ DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss", locale);
+ String fechaFormateada = localDate.format(formatter);
+ System.out.println("Fecha:" + fechaFormateada);
+ to.setFechaGener(localDate.parse(fechaFormateada, formatter));
+ to.setNumDoc("00" + to.getIdVenta());
+ Venta idX = daoV.guardarEntidad(to);
+ List<VentCarrito> dd = listarCarrito(txtDniAutoComplete.getText());
+ if (idX.getIdVenta() != 0) {
+ for (VentCarrito car : dd) {
+ VentaDetalle vd = new VentaDetalle();
+ vd.setIdVenta(idX);
+ vd.setIdProducto(
+         daoP.buscarEntidad(Long.parseLong(String.valueOf(car.getIdProducto()))));
+ vd.setCantidad(car.getCantidad());
+ vd.setDescuento(0);
+ vd.setPu(car.getPunitario());
+ vd.setSubtotal(car.getPtotal());
+ daoVD.guardarEntidad(vd);
+ }
+ }
+ daoC.deleteCarAll(txtDniAutoComplete.getText());
+ listarCarrito(txtDniAutoComplete.getText());
+ daoV.runReport1(Long.parseLong(String.valueOf(idX.getIdVenta())));
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -632,7 +675,7 @@ public class MainVenta extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtable1;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDescuento;
