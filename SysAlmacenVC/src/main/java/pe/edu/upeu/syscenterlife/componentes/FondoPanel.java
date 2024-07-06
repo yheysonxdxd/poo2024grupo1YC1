@@ -19,7 +19,7 @@ public class FondoPanel extends JPanel {
 
     @Override
     public void paint(Graphics g) {
-        image = new ImageIcon(obj.getFile("img/secrecy-icon.png")).getImage();
+        image = new ImageIcon(obj.getFile("img/nnnnnn.png")).getImage();
         g.setColor(getBackground());
         g.fillRoundRect(0, 0, getWidth(), getHeight(), 25, 25);
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);

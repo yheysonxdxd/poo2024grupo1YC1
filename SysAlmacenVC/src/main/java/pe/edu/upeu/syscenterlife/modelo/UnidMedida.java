@@ -33,5 +33,3 @@ public class UnidMedida {
     @JsonIgnoreProperties({"idUnidad"})
     public List<Producto> productos;
 }
-
-

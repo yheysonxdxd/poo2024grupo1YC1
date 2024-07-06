@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package pe.edu.upeu.syscenterlife.gui;
 
 import java.awt.Color;
@@ -29,6 +33,10 @@ import pe.edu.upeu.syscenterlife.servicio.UsuarioService;
 import pe.edu.upeu.syscenterlife.util.MsgBox;
 import pe.edu.upeu.syscenterlife.util.UtilsX;
 
+/**
+ *
+ * @author Datos
+ */
 @Component
 public class Login extends javax.swing.JFrame {
 
@@ -42,6 +50,7 @@ public class Login extends javax.swing.JFrame {
     ConfigurableApplicationContext ctx;
     @Autowired
     GUIMain gUIMain;
+    
     @Autowired
     UsuarioService usuarioService;
 
@@ -51,7 +60,7 @@ public class Login extends javax.swing.JFrame {
         this.setIconImage(new ImageIcon(obj.getFile("img/store.png")).getImage());
         try {
             panelGeneral = new JPanel() {
-                BufferedImage bufferedImage = ImageIO.read(obj.getFile("img/background.jpg"));
+                BufferedImage bufferedImage = ImageIO.read(obj.getFile("img/fondo.jpg"));
 
                 @Override
                 protected void paintComponent(Graphics g) {
@@ -80,11 +89,14 @@ public class Login extends javax.swing.JFrame {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Usuario u = usuarioService.logiUsuario(txtUsername.getText(),
+                
+                Usuario u=usuarioService.loginUsuario(txtUsername.getText(),
                         new String(txtPassword.getPassword()));
-                if (u != null) {
-                        SessionManager.getInstance().setUserId(u.getIdUsuario());
-                        SessionManager.getInstance().setUsuarioNombre(u.getUser());
+                
+                if (u!=null) {
+                    SessionManager.getInstance().setUserId(u.getIdUsuario());
+                    SessionManager.getInstance().setUsuarioNombre(u.getUser());
+                    
                     gUIMain.setContexto(ctx);
                     gUIMain.setVisible(true);
                     dispose();
@@ -145,7 +157,7 @@ public class Login extends javax.swing.JFrame {
         txtPassword.setForeground(Color.gray);
         txtPassword.setEchoChar((char) 0);
         panelBorder.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
-        JLabel label = new JLabel("SysCenterlife");
+        JLabel label = new JLabel("inicia sesion");
         label.setFont(new Font("sansserif", 1, 30));
         label.setForeground(new Color(7, 164, 121));
         panelBorder.add(label);

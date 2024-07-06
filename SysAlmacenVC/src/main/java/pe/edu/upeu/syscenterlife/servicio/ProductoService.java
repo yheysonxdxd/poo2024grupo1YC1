@@ -10,13 +10,13 @@ import pe.edu.upeu.syscenterlife.modelo.Producto;
 import pe.edu.upeu.syscenterlife.repositorio.ProductoRepository;
 import pe.edu.upeu.syscenterlife.util.ErrorLogger;
 
+
 @Service
 public class ProductoService {
 
     @Autowired
     ProductoRepository repository;
-     ErrorLogger log=new ErrorLogger("productoService");
-
+    ErrorLogger log=new ErrorLogger("ProductoService");
     // Crear
     public Producto guardarEntidad(Producto producto) {
         return repository.save(producto);
@@ -44,7 +44,6 @@ public class ProductoService {
 
     public List<ModeloDataAutocomplet> listAutoCompletProducto(String nombre) {
         List<ModeloDataAutocomplet> listarProducto = new ArrayList<>();
-
         try {
             for (Producto producto : repository.listAutoCompletProducto(nombre + "%")) {
                 ModeloDataAutocomplet data = new ModeloDataAutocomplet();
@@ -57,7 +56,6 @@ public class ProductoService {
         } catch (Exception e) {
             log.log(Level.SEVERE, "create", e);
         }
-
         return listarProducto;
     }
 }

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.upeu.syscenterlife.modelo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -20,6 +16,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Data;
 
@@ -47,8 +44,8 @@ public class Venta {
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Basic(optional = false)
     @Column(name = "fecha_gener")
-    @Temporal(TemporalType.DATE)
-    private LocalDate fechaGener;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime fechaGener;
     @Basic(optional = false)
     @Column(name = "serie")
     private String serie;

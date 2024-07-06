@@ -58,7 +58,7 @@ public class MainCliente extends javax.swing.JPanel {
                 ob[1] = listarCleintes.get(i).getDniruc();
                 ob[2] = listarCleintes.get(i).getNombrers();
                 ob[3] = listarCleintes.get(i).getDocumento();
-                ob[4] = listarCleintes.get(i).getDirrecion();
+                ob[4] = listarCleintes.get(i).getDireccion();
                 modelo.addRow(ob);
             }
         }
@@ -106,7 +106,6 @@ public class MainCliente extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         btnPdf = new javax.swing.JButton();
         btnExcel = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         usuarioLogin = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnNuevo = new javax.swing.JButton();
@@ -123,7 +122,7 @@ public class MainCliente extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("GESTION DE CLIENTES");
@@ -142,22 +141,15 @@ public class MainCliente extends javax.swing.JPanel {
 
         btnExcel.setText("Excel");
 
-        jLabel7.setText("yheyson Cristofer Cala");
-
-        usuarioLogin.setText("jLabel8");
+        usuarioLogin.setText("jLabel7");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel7)))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1)
                 .addGap(81, 81, 81)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -172,16 +164,15 @@ public class MainCliente extends javax.swing.JPanel {
                         .addComponent(btnExcel)))
                 .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(usuarioLogin)
-                .addGap(332, 332, 332))
+                .addGap(17, 17, 17))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
                 .addComponent(usuarioLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel5)
@@ -190,8 +181,7 @@ public class MainCliente extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPdf)
-                    .addComponent(btnExcel)
-                    .addComponent(jLabel7))
+                    .addComponent(btnExcel))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -242,7 +232,7 @@ public class MainCliente extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(102, 255, 255));
 
         jLabel2.setText("DNI/RUC:");
 
@@ -294,7 +284,7 @@ public class MainCliente extends javax.swing.JPanel {
 
             },
             new String [] {
-                "#", "DNI/RUC", "Nombres", "T.Doc", "Dirrecion"
+                "#", "DNI/RUC", "Nombres", "T.Doc", "Dirección"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -468,7 +458,6 @@ public class MainCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
