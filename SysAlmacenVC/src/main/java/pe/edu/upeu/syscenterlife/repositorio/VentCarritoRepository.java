@@ -9,10 +9,17 @@ import pe.edu.upeu.syscenterlife.modelo.VentCarrito;
 
 @Repository
 public interface VentCarritoRepository extends JpaRepository<VentCarrito, Long> {
+<<<<<<< HEAD
 
     @Query(value = "SELECT c.* FROM vent_carrito c WHERE c.dniruc=:dniruc", nativeQuery = true)
     List<VentCarrito> listaCarritoCliente(@Param("dniruc") String dniruc);
     
     void deleteByDniruc(/*@Param("dniruc")*/ String dniruc);
+=======
+   @Query(value = "SELECT c.* FROM vent_carrito c WHERE c.dniruc=:dniruc", nativeQuery = true)
+List<VentCarrito> listaCarritoCliente(@Param("dniruc") String dniruc);
+
+void deleteByDniruc(/*@Param("dniruc")*/ String dniruc);
+>>>>>>> 5054c43ea48120286c83d8f35a7a551033d5a734
 
 }
